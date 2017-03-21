@@ -5,12 +5,11 @@ from Movie import Movie
 def movies(total_movies, seed):
     random.seed(seed)
     movie_ids = range(1, total_movies+1)
-    movies =[]
+    movie_repository = {}
     for id in movie_ids:
         rating = round(random.uniform(0, 10), 1)
-        movie = Movie(id, rating, _similarMovieIds(id, movie_ids))
-        movies.append(movie)
-    return movies
+        movie = Movie(id, rating, _similarMovieIds(id, movie_ids), movie_repository)
+    return movie_repository.values()
 
 def _similarMovieIds(current_id, candidate_ids):
     total_similar = random.randint(0,5)
