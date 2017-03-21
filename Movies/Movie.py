@@ -27,8 +27,21 @@ class Movie:
                 '}')
                  
 def getMovieRecommedation(movie, number):
-    return _nHighestRatedMovies(movie.getSimilarMovies(), number, [], [])
+    return _nHighestRatedMovies(movie.getSimilarMovies(), number, set(), [])
 
 def _nHighestRatedMovies(candidates, number, visited, highest_rated_movies):
-    if not candidates:
+    if number == 0 or not candidates:
         return highest_rated_movies
+    movie = candidates.pop(0)
+    if movie.getId() in visited:
+        return _nHighestRatedMovies(candidates, number, visited, highest_rated_movies)
+    visited.add(movie.getId())
+    _addToHighestRatedMovies(movie, number, highest_rated_movies)
+    candidates.extend(movie.getSimilarMovies())
+    return _nHighestRatedMovies(candidates, number, visited, highest_rated_movies)
+
+def _addToHighestRatedMovies(movie, number, highest_rated_movies):
+    highest_rated_movies.append(movie)
+    highest_rated_movies.sort(key=lambda m: m.getRating(), reverse=1)
+    if number < len(highest_rated_movies):
+        highest_rated_movies.pop()
