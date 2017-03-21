@@ -55,7 +55,7 @@ class Movie:
 The following function must resolve the task:
 ```
 # RETURN AN EMPTY LIST IF NO SIMILAR MOVIE TO THE GIVEN MOVIE IS FOUND
-def getMovieRecommedation(movie, N):
+getMovieRecommedations(movie, N):
 ```
 
 Run the tests:

@@ -21,3 +21,5 @@ class Movie:
                 '"similar_movies": ' + str(self._similar_movies) +
                 '}')
                  
+def getMovieRecommedation(movie, number):
+    return []
