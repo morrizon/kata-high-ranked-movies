@@ -1,5 +1,5 @@
-from Movies.Movie import Movie
 import unittest
+from Movie import Movie
 
 class TestMovies(unittest.TestCase):
 
