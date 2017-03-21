@@ -21,8 +21,8 @@ class TestMovies(unittest.TestCase):
             '{"id": 9, "rating": 8.4, "similar_movies": [8, 2, 7]}',
             '{"id": 10, "rating": 8.6, "similar_movies": []}'
         ]
-        self.assertEquals(expected_movies, map(lambda m: str(m), movies))
-        self.assertEquals(1, movies[0].getId())
-        self.assertEquals(1.3, movies[0].getRating())
-        self.assertEquals(5, len(movies[0].getSimilarMovies()))
-        self.assertEquals(8, movies[0].getSimilarMovies()[0].getId())
+        self.assertEqual(expected_movies, map(lambda m: str(m), movies))
+        self.assertEqual(1, movies[0].getId())
+        self.assertEqual(1.3, movies[0].getRating())
+        self.assertEqual(5, len(movies[0].getSimilarMovies()))
+        self.assertEqual(8, movies[0].getSimilarMovies()[0].getId())
