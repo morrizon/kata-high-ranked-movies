@@ -27,4 +27,8 @@ class Movie:
                 '}')
                  
 def getMovieRecommedation(movie, number):
-    return []
+    return _nHighestRatedMovies(movie.getSimilarMovies(), number, [], [])
+
+def _nHighestRatedMovies(candidates, number, visited, highest_rated_movies):
+    if not candidates:
+        return highest_rated_movies
