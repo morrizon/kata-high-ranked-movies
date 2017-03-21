@@ -60,5 +60,5 @@ def getMovieRecommedation(movie, N):
 
 Run the tests:
 ```
-python -m unittest Movies.test_movies
+python -m unittest discover -s . -p '*Test.py'
 ```

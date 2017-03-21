@@ -1,6 +1,4 @@
-#!/usr/bin/python
-
-import Movies
+from Movies.Movie import Movie
 import unittest
 
 class TestMovies(unittest.TestCase):
@@ -11,7 +9,7 @@ class TestMovies(unittest.TestCase):
         self.movieSimilarMovies = []
 
     def test_movie_implement_the_interface(self):
-        movie = Movies.Movie(self.movieId, self.movieRating, self.movieSimilarMovies)
+        movie = Movie(self.movieId, self.movieRating, self.movieSimilarMovies)
         self.assertEqual(self.movieId, movie.getId())
         self.assertEqual(self.movieRating, movie.getRating())
         self.assertEqual(self.movieSimilarMovies, movie.getSimilarMovies())
